@@ -5,10 +5,11 @@ from django.core.files.storage import FileSystemStorage
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
+import time
 import json
 
 
-from .models import CustomUser, Staffs, Courses, Subjects, Students, SessionYearModel, Attendance, AttendanceReport
+from .models import CustomUser, Staffs, Courses, Subjects, Students,  FeedBackStudent, SessionYearModel, Attendance, AttendanceReport
 
 
 def staff_home(request):
@@ -151,6 +152,51 @@ def save_attendance_data(request):
         return HttpResponse("OK")
     except:
         return HttpResponse("Error")
+
+def view_attendance_data(request):
+    time.sleep(7)
+    return render(request, "staff_template/staff_view_attendance_template.html")
+
+def staff_update_attendance_data(request):
+    return render(request, "staff_template/staff_update_attendance_template.html")
+
+def show_updated(request):
+    return render(request, "staff_template/show_updated_template.html")
+
+def show_defaulter(request):
+    return render(request, "staff_template/show_defaulter_template.html")
+
+def get_defaulter(request):
+    session_years = SessionYearModel.objects.all()
+    courses= Courses.objects.all()
+    context = {
+        "courses":courses,
+        "session_years": session_years
+    }
+    return render(request, "staff_template/get_defaulter_template.html", context)
+
+
+def student_feedback_message(request):
+    feedbacks = FeedBackStudent.objects.all()
+    context = {
+        "feedbacks": feedbacks
+    }
+    return render(request, 'staff_template/student_feedback_template.html', context)
+
+@csrf_exempt
+def student_feedback_message_reply(request):
+    feedback_id = request.POST.get('id')
+    feedback_reply = request.POST.get('reply')
+
+    try:
+        feedback = FeedBackStudent.objects.get(id=feedback_id)
+        feedback.feedback_reply = feedback_reply
+        feedback.save()
+        return HttpResponse("True")
+
+    except:
+        return HttpResponse("False")
+
 
 
 def staff_update_attendance(request):

@@ -189,7 +189,7 @@ Take Attendance
                     {
                         alert("Failed to Save Attendance!")
                     }
-                    location.reload()
+                    document.location.href ="{% url 'view_attendance_data' %}"
                     
                     //console.log(response)
                 })

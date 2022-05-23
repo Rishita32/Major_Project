@@ -1,0 +1,504 @@
+{% extends 'staff_template/base_template.html' %}
+
+{% block page_title %}
+Defaulter
+{% endblock page_title %}
+
+{% block main_content %}
+
+{% load static %}
+
+<section class="content">
+	<div class="container-fluid">
+		
+		<div class="row">
+			<div class="col-md-12">
+				<!-- general form elements -->
+				<div class="card card-primary">
+					<div class="card-header">
+						<h3 class="card-title">27th April 2022, DMBI</h3>
+                        <a href="{% static 'abc.xls' %}" download="26/04/22, DMBI.xls" class="btn btn-success" style="float:right"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                          </svg></a></button>
+					</div>
+					<!-- /.card-header -->
+					
+					{% comment %} Display Messages {% endcomment %}
+					{% if messages %}
+					<div class="form-group">
+						<div class="col-12">
+							{% for message in messages %}
+							{% if message.tags == "error" %}
+							<div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+								{{ message }}
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							{% elif message.tags == "success" %}
+							<div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+								{{ message }}
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+					{% endif %}
+					
+					
+					<div class="card-body">
+						
+                        <table class="table">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                                <th colspan="2" style='text-align: center;'>AISC</th>
+                                <th colspan="2" style='text-align: center;'>DMBI</th>
+                              <tr>
+                                <th scope="col">Roll No:</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">UID</th>
+                                <th scope="col">Lectures Attended</th>
+                                <th scope="col">Percentage</th>
+                                <th scope="col">Lectures Attended</th>
+                                <th scope="col">Percentage</th>
+                              </tr>
+                              </tr>
+                             
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>Darshak Bali</td>
+                                <td>2017130008</td>
+                                <td>1</td>
+                                <td>66.66%</td>
+                                <td>1</td>
+                                <td>33.33%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td>Akshat Bhat</td>
+                                <td>2018130003</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>2</td>
+                                <td>66.66%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">3</th>
+                                <td>Namrata Bhorade</td>
+                                <td>2018130004</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">4</th>
+                                <td>Nikita Chitre</td>
+                                <td>2018130006</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">5</th>
+                                <td>Ojasa Chitre</td>
+                                <td>2018130007</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">6</th>
+                                <td>Abhis Singh Dadwal</td>
+                                <td>2018130008</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">7</th>
+                                <td>Arka Haldi</td>
+                                <td>2018130014</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">8</th>
+                                <td>Ebrahim Hirani</td>
+                                <td>2018130015</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">9</th>
+                                <td>Jainam Jain</td>
+                                <td>2018130016</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">10</th>
+                                <td>Khushi Jashnani</td>
+                                <td>2018130017</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">11</th>
+                                <td>Neha Kale</td>
+                                <td>2018130018</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">12</th>
+                                <td>Rishi Kaul</td>
+                                <td>2018130019</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">13</th>
+                                <td>Shivangi Kochrekar</td>
+                                <td>2018130020</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">14</th>
+                                <td>Varun Magotra</td>
+                                <td>2018130022</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">15</th>
+                                <td>Darsh Mehta</td>
+                                <td>2018130023</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">16</th>
+                                <td>Jay Mehta</td>
+                                <td>2018130024</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">17</th>
+                                <td>Prachi Mehta</td>
+                                <td>2018130025</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                             
+                              <tr>
+                                <th scope="row">18</th>
+                                <td>Vedant Mehta</td>
+                                <td>2018130028</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">19</th>
+                                <td>Rishita Mote</td>
+                                <td>2018130029</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">20</th>
+                                <td>Gaurav patil</td>
+                                <td>2018130038</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">21</th>
+                                <td>Sakshi Patil</td>
+                                <td>2018130039</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">22</th>
+                                <td>Bhargavi Poyekar</td>
+                                <td>2018130040</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">23</th>
+                                <td>Chirag Rana</td>
+                                <td>2018130043</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">24</th>
+                                <td>Pritam Rao</td>
+                                <td>2018130044</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">25</th>
+                                <td>Jahnvi Shah</td>
+                                <td>2018130047</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">26</th>
+                                <td>Shubham Shetty</td>
+                                <td>2018130050</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">27</th>
+                                <td>Jiten Sidhpura</td>
+                                <td>2018130051</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">28</th>
+                                <td>Trusha Talati</td>
+                                <td>2018130054</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">29</th>
+                                <td>Pradnya Topale</td>
+                                <td>2018130057</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">30</th>
+                                <td>Soham Vaidya</td>
+                                <td>2018130058</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">31</th>
+                                <td>Vaidehi Vatsaraj</td>
+                                <td>2018130060</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">32</th>
+                                <td>Rudresh Veerkhare</td>
+                                <td>2018130061</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">33</th>
+                                <td>Shobhit Verma</td>
+                                <td>2018130062</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">34</th>
+                                <td>Parshwa Shah</td>
+                                <td>2019230071</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">35</th>
+                                <td>Ishita Badole</td>
+                                <td>2018130001</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">36</th>
+                                <td>Sakshi Chheda</td>
+                                <td>2018130005</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">37</th>
+                                <td>Ashutosh Naik</td>
+                                <td>2018130030</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">38</th>
+                                <td>Rucha Nargunde</td>
+                                <td>2018130032</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">39</th>
+                                <td>Prerak Parekh</td>
+                                <td>2018130035</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">40</th>
+                                <td>Shashank Patel</td>
+                                <td>2018130036</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">41</th>
+                                <td>Harsh Sandesara</td>
+                                <td>2018130045</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">42</th>
+                                <td>Karan Shah</td>
+                                <td>2018130048</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">43</th>
+                                <td>Yash Shah</td>
+                                <td>2018130049</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">44</th>
+                                <td>Sarika Singh</td>
+                                <td>2018130053</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">45</th>
+                                <td>Yug Vajani</td>
+                                <td>2018130059</td>
+                                <td>3</td>
+                                <td>100%</td>
+                                <td>3</td>
+                                <td>100%</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          
+                          
+					
+					</div>
+					<!-- /.card-body -->
+					
+				
+					
+				
+				</div>
+				<!-- /.card -->
+			
+			</div>
+		</div>
+	
+	</div><!-- /.container-fluid -->
+</section>
+
+{% endblock main_content %}
+
+

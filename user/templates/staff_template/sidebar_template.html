@@ -53,7 +53,26 @@
                 </p>
               </a>
             </li>
-
+            
+            <li class="nav-item">
+              {% url 'student_feedback_message' as student_feedback_message %}
+              <a href="{{ student_feedback_message }}" class="nav-link {% if request.path == student_feedback_message %} active {% endif %}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Student Feedback
+                </p>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              {% url 'get_defaulter' as get_defaulter %}
+              <a href="{{ get_defaulter }}" class="nav-link {% if request.path == get_defaulter %} active {% endif %}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Defaulter
+                </p>
+              </a>
+            </li>
             
             
 
